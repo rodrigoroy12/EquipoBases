@@ -98,6 +98,7 @@ CREATE TABLE prod_proveedor_precio(
 
 CREATE TABLE prod_proveedor_tipo(
     producto_proveedorid_prod_proveedor serial,
-    tipo_producto varchar(50)
+    tipo_producto varchar(50),
+    primary key (producto_proveedorid_prod_proveedor)
 )
 
