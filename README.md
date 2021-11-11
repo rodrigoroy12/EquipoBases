@@ -20,13 +20,13 @@ CREATE TABLE rfc_empresa (
 );
 CREATE TABLE representantes (
 	Id_representantes 	SERIAL,
-	nombre 		VARCHAR(20),
+	nombre 			VARCHAR(20),
 	app			VARCHAR(20),
 	apm			VARCHAR(20)
 );
 CREATE TABLE dir_mayorista(
 	mayoristaid_mayorista	INTEGER(10),
-	numero 		INTEGER(10),
+	numero 			INTEGER(10),
 	calle 			VARCHAR(30),
 	colonia			VARCHAR(20),
 	estado 			VARCHAR(20),
