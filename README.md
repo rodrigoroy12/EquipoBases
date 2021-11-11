@@ -5,6 +5,41 @@
 --(DANI)
 
 --(IVAN)
+```sql
+CREATE TABLE teléfono_may (
+	mayoristaid_mayorista 	INTEGER(10),
+	teléfono 		INTEGER(10)
+);
+CREATE TABLE correo_may (
+	mayoristaid_mayorista 	INTEGER(10),
+	correo 			VARCHAR(30)
+);
+CREATE TABLE rfc_empresa (
+	mayoristaid_mayorista 	INTEGER(10),
+	rfc 			VARCHAR(13)
+);
+CREATE TABLE representantes (
+	Id_representantes 	SERIAL,
+	nombre 		VARCHAR(20),
+	app			VARCHAR(20),
+	apm			VARCHAR(20)
+);
+CREATE TABLE dir_mayorista(
+	mayoristaid_mayorista	INTEGER(10),
+	numero 		INTEGER(10),
+	calle 			VARCHAR(30),
+	colonia			VARCHAR(20),
+	estado 			VARCHAR(20),
+	cp			INTEGER(8),
+	municipio		VARCHAR(20)
+);
+CREATE TABLE compra(
+	id_compra 		SERIAL,
+	fecha			DATE,
+	clienteid_cliente	INTEGER(10),
+	id_trabajador		INTEGER(10)
+);
+```
 
 --(LUIS)
 
