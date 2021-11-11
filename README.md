@@ -64,3 +64,37 @@ CREATE TABLE empleado (
 --(CHRIS)
 
 --(MARLENE)
+``` sql
+CREATE TABLE encargo_orden(
+    gerente_proveedorid_encargo_proveedor serial,
+    no_orden integer
+);
+
+
+CREATE TABLE proveedor(
+    id_proveedor serial,
+    nombre_proveedor varchar(50) not null,
+    rfc varchar(13),
+    telefono integer
+
+);
+
+CREATE TABLE producto_proveedor(
+    id_prod_proveedor serial,
+    nombre_prod_proveedor varchar(50),
+    proveedorid_proveedor integer
+
+);
+
+
+CREATE TABLE prod_proveedor_precio(
+    producto_proveedorid_prod_proveedor serial,
+    precio integer
+)
+
+CREATE TABLE prod_proveedor_tipo(
+    producto_proveedorid_prod_proveedor serial,
+    tipo_producto varchar(50),
+    
+)
+```
