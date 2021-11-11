@@ -73,7 +73,7 @@ CREATE TABLE encargo_orden(
 
 CREATE TABLE proveedor(
     id_proveedor serial,
-    nombre_proveedor varchar(50) not null,
+    nombre_proveedor varchar(50),
     rfc varchar(13),
     telefono integer
 
