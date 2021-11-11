@@ -6,7 +6,7 @@
 
 --(IVAN)
 ```sql
-CREATE TABLE teléfono_may (
+CREATE TABLE telefono_may (
 	mayoristaid_mayorista 	INTEGER(10),
 	teléfono 		INTEGER(10)
 );
