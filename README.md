@@ -1,4 +1,6 @@
 # EquipoBases
+
+--
 create table catalogo_categoria (
     id_cat_categoria  serial,
 	precio real,
@@ -45,3 +47,6 @@ CREATE TABLE empleado (
     horario text,
     area varchar(20)
 );
+
+
+--(MARLENE)
