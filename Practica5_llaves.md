@@ -43,3 +43,34 @@ alter table empleado alter constraint chk_empleado_rfc CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
 alter table empleado alter column fecha_fin set null;
 ```
+```sql
+--(IVAN)
+--LLAVES PRIMARIAS
+ALTER TABLE telefono_may ADD CONSTRAINT pk_telefono_may_mayoristaid_mayorista PRIMARY KEY (mayoristaid_mayorista);
+ALTER TABLE correo_may ADD CONSTRAINT pk_correo_may_mayoristaid_mayorista PRIMARY KEY (mayoristaid_mayorista);
+ALTER TABLE rfc_empresa ADD CONSTRAINT pk_rfc_empresa_mayoristaid_mayorista PRIMARY KEY (mayoristaid_mayorista);
+ALTER TABLE representantes ADD CONSTRAINT pk_representantes_id_representantes PRIMARY KEY (id_representantes);
+ALTER TABLE dir_mayorista ADD CONSTRAINT pk_dir_mayorista_mayoristaid_mayorista PRIMARY KEY (mayoristaid_mayorista);
+ALTER TABLE compra ADD CONSTRAINT pk_compra_id_compra PRIMARY KEY (id_compra);
+
+--LLAVES FORANEAS
+ALTER TABLE telefono_may ADD constraint fk_telefono_may_mayoristaid_mayorista_mayorista_id_mayorista FOREIGN KEY (mayoristaid_mayorista) REFERENCES categoria(id_mayorista);
+ALTER TABLE correo_may ADD constraint fk_correo_may_mayoristaid_mayorista_mayorista_id_mayorista FOREIGN KEY (mayoristaid_mayorista) REFERENCES categoria(id_mayorista);
+ALTER TABLE rfc_empresa ADD constraint fk_rfc_empresa_mayoristaid_mayorista_mayorista_id_mayorista FOREIGN KEY (mayoristaid_mayorista) REFERENCES categoria(id_mayorista);
+ALTER TABLE dir_mayorista ADD constraint fk_dir_mayorista_mayoristaid_mayorista_mayorista_id_mayorista FOREIGN KEY (mayoristaid_mayorista) REFERENCES categoria(id_mayorista);
+ALTER TABLE dir_mayorista ADD constraint fk_dir_mayorista_mayoristaid_mayorista_mayorista_id_mayorista FOREIGN KEY (mayoristaid_mayorista) REFERENCES categoria(id_mayorista);
+ALTER TABLE dir_mayorista ADD constraint fk_dir_mayorista_mayoristaid_mayorista_mayorista_id_mayorista FOREIGN KEY (mayoristaid_mayorista) REFERENCES categoria(id_mayorista);
+ALTER TABLE compra ADD constraint fk_compra_clienteid_cliente_cliente_id_cliente FOREIGN KEY (clienteid_cliente) REFERENCES categoria(id_cliente);
+ALTER TABLE compra ADD constraint fk_compra_id_trabajador_empleado_id_trabajador FOREIGN KEY (id_trabajador) REFERENCES categoria(id_trabajador);
+
+--NULL AND CHECK
+ALTER TABLE rfc_empresa ALTER CONSTRAINT chk_rfc_empresa CHECK 
+(rfc = ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-Z]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9][A-Z]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
+
