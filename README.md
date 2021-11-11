@@ -90,11 +90,11 @@ CREATE TABLE producto_proveedor(
 CREATE TABLE prod_proveedor_precio(
     producto_proveedorid_prod_proveedor serial,
     precio integer
-)
+);
 
 CREATE TABLE prod_proveedor_tipo(
     producto_proveedorid_prod_proveedor serial,
     tipo_producto varchar(50),
     
-)
+);
 ```
