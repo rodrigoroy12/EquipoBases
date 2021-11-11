@@ -101,7 +101,8 @@ CREATE TABLE empleado (
 --(CHRIS)
 
 --(MARLENE)
-''' sql
+
+```sql
 CREATE TABLE encargo_orden(
     gerente_proveedorid_encargo_proveedor serial,
     no_orden integer
@@ -133,4 +134,4 @@ CREATE TABLE prod_proveedor_tipo(
     producto_proveedorid_prod_proveedor serial,
     tipo_producto varchar(50)
 )
-'''
+```
