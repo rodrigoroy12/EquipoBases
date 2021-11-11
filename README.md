@@ -8,45 +8,8 @@
 
 --(LUIS)
 
-```sql
-CREATE TABLE cmodalidad(
-    id_modalidad SERIAL,
-    nombre VARCHAR(50),
-    descripcion VARCHAR(25),
-    dependencia VARCHAR(255)
-);
-
-CREATE TABLE tipo_pago(
-    id_tipo_pago SERIAL,
-    fisico_online BIT,
-    id_modalidad SMALLINT
-);
-
-CREATE TABLE compra_tipo_compra(
-  id_compra INTEGER,
-  id_tipo_pago INTEGER
-);
-
-CREATE TABLE producto_compra(
-    id_compra INTEGER,
-    id_producto INTEGER,
-    precio REAL,
-    cantidad SMALLINT
-);
-
-CREATE TABLE producto(
-    id_producto SERIAL,
-    nombre_prodcuto VARCHAR(50),
-    id_categoria INTEGER
-);
-
-CREATE TABLE categoria(
-    id_categoria SERIAL,
-    nombre_categoria VARCHAR(50)
-);
-```
-
 -(NANCY)
+'''sql
 create table catalogo_categoria (
     id_cat_categoria  serial,
 	precio real,
@@ -93,7 +56,7 @@ CREATE TABLE empleado (
     horario text,
     area varchar(20)
 );
-
+'''
 --(RODRIGO)
 
 --(GABY)
@@ -101,37 +64,3 @@ CREATE TABLE empleado (
 --(CHRIS)
 
 --(MARLENE)
-
-```sql
-CREATE TABLE encargo_orden(
-    gerente_proveedorid_encargo_proveedor serial,
-    no_orden integer
-);
-
-
-CREATE TABLE proveedor(
-    id_proveedor serial,
-    nombre_proveedor varchar(50) not null,
-    rfc varchar(13),
-    telefono integer
-
-);
-
-CREATE TABLE producto_proveedor(
-    id_prod_proveedor serial,
-    nombre_prod_proveedor varchar(50),
-    proveedorid_proveedor integer
-
-);
-
-
-CREATE TABLE prod_proveedor_precio(
-    producto_proveedorid_prod_proveedor serial,
-    precio integer
-)
-
-CREATE TABLE prod_proveedor_tipo(
-    producto_proveedorid_prod_proveedor serial,
-    tipo_producto varchar(50)
-)
-```
