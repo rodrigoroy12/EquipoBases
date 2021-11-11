@@ -8,6 +8,11 @@
 
 --(LUIS)
 
+```sql
+SELECT *
+FROM
+```
+
 -(NANCY)
 create table catalogo_categoria (
     id_cat_categoria  serial,
