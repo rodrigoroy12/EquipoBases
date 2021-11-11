@@ -3,6 +3,41 @@
 --(ENRIQUE)
 
 --(DANI)
+```sql
+CREATE TABLE correo_min(
+    minorista_onlineid_minorista_on serial,
+    correo varchar(20)
+);
+CREATE TABLE dir_minorista(
+    id_minorista_on serial
+    numero integer(10)
+    calle varchar(30)
+    colonia varchar(20)
+    delegacion varchar(20)
+    cp integer(8)
+);
+CREATE TABLE tarjetas_registradas(
+    minorista_onlineid_minorista_on serial
+    tipo_de_tarjetaid_tipo_de_tarjeta integer(10)
+    emisora_tarjetaid_emisora integer(10)
+);
+CREATE TABLE tipo_de_tarjeta(
+    id_tipo_de_tarjeta serial
+    tipo varchar(32)
+);
+CREATE TABLE emisora_tarjeta(
+    id_emisora serial
+    emisora varchar(20)
+);
+CREATE TABLE mayorista(
+    id_mayorista serial
+    nombre varchar(30)
+    repre_empresa varchar(30)
+    clienteid_cliente integer(10)
+    representantesid_representante integer(10)
+);
+
+
 
 --(IVAN)
 ```sql
