@@ -6,52 +6,10 @@
 
 --(IVAN)
 
-```sql
-
-
-```
-
 --(LUIS)
 
-```sql
-CREATE TABLE cmodalidad(
-    id_modalidad SERIAL,
-    nombre VARCHAR(50),
-    descripcion VARCHAR(25),
-    dependencia VARCHAR(255)
-);
-
-CREATE TABLE tipo_pago(
-    id_tipo_pago SERIAL,
-    fisico_online BIT,
-    id_modalidad SMALLINT
-);
-
-CREATE TABLE compra_tipo_compra(
-  id_compra INTEGER,
-  id_tipo_pago INTEGER
-);
-
-CREATE TABLE producto_compra(
-    id_compra INTEGER,
-    id_producto INTEGER,
-    precio REAL,
-    cantidad SMALLINT
-);
-
-CREATE TABLE producto(
-    id_producto SERIAL,
-    nombre_prodcuto VARCHAR(50),
-    id_categoria INTEGER
-);
-
-CREATE TABLE categoria(
-    id_categoria SERIAL,
-    nombre_categoria VARCHAR(50)
-);
-```
-
 -(NANCY)
+'''sql
 create table catalogo_categoria (
     id_cat_categoria  serial,
 	precio real,
@@ -97,7 +55,7 @@ CREATE TABLE empleado (
     salario real,
     horario text,
     area varchar(20)
-);
+);'''
 
 --(RODRIGO)
 
@@ -141,7 +99,6 @@ CREATE TABLE prod_proveedor_precio(
 
 CREATE TABLE prod_proveedor_tipo(
     producto_proveedorid_prod_proveedor serial,
-    tipo_producto varchar(50),
-    primary key (producto_proveedorid_prod_proveedor)
+    tipo_producto varchar(50)
 )
 
