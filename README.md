@@ -9,7 +9,7 @@
 --(LUIS)
 
 -(NANCY)
-'''sql
+```sql
 create table catalogo_categoria (
     id_cat_categoria  serial,
 	precio real,
@@ -56,7 +56,7 @@ CREATE TABLE empleado (
     horario text,
     area varchar(20)
 );
-'''
+```
 --(RODRIGO)
 
 --(GABY)
