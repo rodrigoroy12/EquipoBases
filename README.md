@@ -23,8 +23,8 @@ CREATE TABLE tipo_pago(
 );
 
 CREATE TABLE compra_tipo_compra(
-  id_compra INTEGER,
-  id_tipo_pago INTEGER
+    id_compra INTEGER,
+    id_tipo_pago INTEGER
 );
 
 CREATE TABLE producto_compra(
