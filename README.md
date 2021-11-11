@@ -1,6 +1,14 @@
 # EquipoBases
 
---
+--(ENRIQUE)
+
+--(DANI)
+
+--(IVAN)
+
+--(LUIS)
+
+-(NANCY)
 create table catalogo_categoria (
     id_cat_categoria  serial,
 	precio real,
@@ -48,44 +56,10 @@ CREATE TABLE empleado (
     area varchar(20)
 );
 
+--(RODRIGO)
+
+--(GABY)
+
+--(CHRIS)
 
 --(MARLENE)
-
-CREATE TABLE encargo_orden(
-    gerente_proveedorid_encargo_proveedor serial,
-    no_orden integer,
-    primary key (gerente_proveedorid_encargo_proveedor)
-);
-
-
-CREATE TABLE proveedor(
-    id_proveedor serial,
-    nombre_proveedor varchar(50) not null,
-    rfc varchar(13),
-    telefono integer,
-    primary key(id_proveedor)
-
-);
-
-CREATE TABLE producto_proveedor(
-    id_prod_proveedor serial,
-    nombre_prod_proveedor varchar(50),
-    proveedorid_proveedor integer,
-    primary key(id_prod_proveedor),
-    foreign key(proveedorid_proveedor) references proveedor
-
-);
-
-
-CREATE TABLE prod_proveedor_precio(
-    producto_proveedorid_prod_proveedor serial,
-    precio integer,
-    primary key (producto_proveedorid_prod_proveedor)
-)
-
-CREATE TABLE prod_proveedor_tipo(
-    producto_proveedorid_prod_proveedor serial,
-    tipo_producto varchar(50)
-)
-
-
