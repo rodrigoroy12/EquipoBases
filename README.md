@@ -40,6 +40,7 @@ CREATE TABLE mayorista(
 
 
 --(IVAN)
+
 ```sql
 CREATE TABLE telefono_may (
 	mayoristaid_mayorista 	INTEGER(10),
