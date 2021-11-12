@@ -171,6 +171,37 @@ CREATE TABLE empleado (
 
 --(GABY)
 
+```sql
+CREATE TABLE cajero (
+	id_cajero      INTEGER(10),
+	no_caja        SMALLINT(10),
+	empleadoid_trabajador INTEGER(10)
+);
+
+CREATE TABLE capacitacion (
+	id_trabajador_cap 	INTEGER(10),
+	horas_completadas	SMALLINT(10),
+	zona_enfoque            VARCHAR(255),
+	empleadoid_trabajador   INTEGER(10)
+);
+
+CREATE TABLE empacador (
+        id_empacador            SMALLINT(5),
+	tipo_empacador          VARCHAR(30),
+	empleadoid_trabajador   INTEGER(10)
+);
+
+CREATE TABLE encargado_almacen (
+        id_encargado_alm        INTERGER(10),
+	no_computadora          SMALLINT(10),
+	empleadoid_trabajador   INTEGER(10)
+);
+CREATE TABLE encargado_almacen (
+        id_encargado_mos        INTERGER(10),
+	no_ventas               SMALLINT(10),
+	empleadoid_trabajador   INTEGER(10)
+);	
+	
 --(CHRIS)
 ``` sql
 
