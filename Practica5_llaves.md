@@ -73,7 +73,7 @@ ALTER TABLE rfc_empresa ALTER CONSTRAINT chk_rfc_empresa CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9][A-Z]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
-
+```
 ```sql
 --(RODRIGO)
 --LLAVES PRIMARIAS
