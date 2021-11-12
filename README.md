@@ -168,7 +168,35 @@ CREATE TABLE empleado (
 );
 ```
 --(RODRIGO)
+```sql
+CREATE TABLE empleado_puesto(
+	empleadoid_trabajador INTEGER,
+	cpuestoid_cpuesto INTEGER
+);
 
+CREATE TABLE cpuesto(
+	id_cpuesto INTEGER,
+	puesto varchar(30)
+);
+
+CREATE TABLE repartidor(
+	id_cpuesto INTEGER,
+	puesto VARCHAR(30),
+	no_licencia INTEGER,
+	empleadoid_trabajador INTEGER,
+	local_nacionalid_loc_nal INTEGER
+);
+
+CREATE TABLE local_nacional(
+	id_loc_nal INTEGER,
+	tipo VARCHAR(30)
+);
+
+CREATE TABLE tipo_unidad(
+	local_nacionalid_loc_nal INTEGER,
+	tipo_unidad VARCHAR(30)
+);
+```
 --(GABY)
 
 ```sql
