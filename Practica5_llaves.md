@@ -74,3 +74,21 @@ ALTER TABLE rfc_empresa ALTER CONSTRAINT chk_rfc_empresa CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
 
+```sql
+--(RODRIGO)
+--LLAVES PRIMARIAS
+ALTER TABLE cpuesto ADD CONSTRAINT pk_cpuesto_id_cpuesto PRIMARY KEY  (id_cpuesto);
+ALTER TABLE repartidor ADD CONSTRAINT pk_repartidor_id_repartidor PRIMARY KEY  (id_repartidor);
+ALTER TABLE local_nacional ADD CONSTRAINT pk_local_nacional_id_loc_nac PRIMARY KEY  (id_loc_nac);
+
+--LLAVES FORANEAS
+ALTER TABLE emplead_puesto ADD constraint fk_empleado_puesto_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empeleadoid_trabajador) REFERENCES empleado(id_trabajador);
+ALTER TABLE emplead_puesto ADD constraint fk_empleado_puesto_cpuestoid_cpuesto_cpuesto_id_cpuesto FOREIGN KEY (cpuestoid_cpuesto) REFERENCES cpuesto(id_cpuesto);
+ALTER TABLE repartidor ADD constraint fk_repartidor_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empeleadoid_trabajador) REFERENCES empleado(id_trabajador);
+ALTER TABLE repartidor ADD constraint fk_repartidor_local_nacionalid_loc_nac FOREIGN KEY (local_nacionalid_loc_nac) REFERENCES local_nacional(id_loc_nac);
+ALTER TABLE tipo_unidad ADD constraint fk_tipo_unidad_local_nacionalid_loc_nac_local_nacional_id_loc_nac FOREIGN KEY (local_nacionalid_loc_nal) REFERENCES local_nacional(id_loc_nac);
+
+--NULL AND CHECK
+ALTER TABLE local_nacional ALTER CONSTRAINT chk_local_nacional_tipo CHECK (tipo= "Local" OR "Nacional");
+```
+
