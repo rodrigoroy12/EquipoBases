@@ -36,7 +36,7 @@ CREATE TABLE mayorista(
     clienteid_cliente integer(10)
     representantesid_representante integer(10)
 );
-
+```
 
 
 --(IVAN)
@@ -229,9 +229,11 @@ CREATE TABLE encargado_almacen (
 	no_ventas               SMALLINT(10),
 	empleadoid_trabajador   INTEGER(10)
 );	
+```	
 	
 --(CHRIS)
-``` sql
+
+```sql
 
 CREATE TABLE vigilancia (
  id_trabajador_vig SERIAL,
@@ -263,8 +265,8 @@ CREATE TABLE encargo_seguimiento (
    gerente_proveedorid_encargo_proveedor SERIAL
      no_seguimiento INTEGER(10)
 ); 
+```
 
-``` 
 --(MARLENE)
 ``` sql
 CREATE TABLE encargo_orden(
