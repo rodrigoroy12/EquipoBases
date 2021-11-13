@@ -92,6 +92,9 @@ ALTER TABLE tarjetas_registradas ADD CONSTRAINT fk_tarjetas_registradas_tipo_de_
 ALTER TABLE tarjetas_registradas ADD CONSTRAINT fk_tarjetas_registradas_emisora_tarjetaid_emisora_emisora_tarjeta_id_emisora FOREIGN KEY (emisora_tarjetaid_emisora) REFERENCES emisora_tarjeta(id_emisora)
 ALTER TABLE mayorista ADD CONSTRAINT fk_mayorista_clienteid_cliente_cliente_id_cliente FOREIGN KEY (clienteid_cliente) REFERENCES cliente(id_cliente)
 ALTER TABLE mayorista ADD CONSTRAINT fk_mayorista_representanteid_representante_representantes_id_representante FOREIGN KEY (representanteid_representante) REFERENCES representantes(id_representante)
+--NULL AND CHECK
+ALTER TABLE tipo_de_tarjeta ALTER CONSTRAINT chk_tipo_de_tarjeta_tipo CHECK (tipo = "Débito" OR "Crédito")
+
 
 
 
