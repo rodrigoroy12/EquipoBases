@@ -93,9 +93,10 @@ ALTER TABLE local_nacional ALTER CONSTRAINT chk_local_nacional_tipo CHECK (tipo=
 ```
 
 
---Marlene 
 
 ``` sql
+
+--Marlene
 
 --LLAVES PRIMARIAS
 ALTER TABLE encargo_orden  ADD CONSTRAINT  pk_encargo_orden PRIMARY KEY (gerente_proveedorid_encargo_proveedor);
