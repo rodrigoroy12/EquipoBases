@@ -1,7 +1,58 @@
 # EquipoBases
 
 --(ENRIQUE)
+--(BRUCE)
+```sql
+-- --------------------------------------
+CREATE TABLE minorista (
+	id_minorista        INTEGER(10),
+	clienteid_cliente   INTEGER(10)
+);
+-- --------------------------------------
+CREATE TABLE miembros (
+    id_miembro              INTEGER(10),
+	nombre                  VARCHAR(30),
+    app                     VARCHAR(30),
+    apm                     VARCHAR(30),
+    sexo                    VARCHAR(15),
+    fecha_inicio            DATE,
+	fecha_expiracion        DATE,
+    minoristaid_minorista   INTEGER(10),
+    cmembresianombre        VARCHAR(30)
+);
+-- --------------------------------------
+CREATE TABLE cmembresia (
+	nombre          VARCHAR(30),
+	descripcion     VARCHAR(30),
+    precio          REAL(10)
+);
 
+-- --------------------------------------
+CREATE TABLE telefono_miembros (
+	miembrosid_miembro      INTEGER(10),
+	telefono                VARCHAR(15)
+);
+
+
+-- --------------------------------------
+CREATE TABLE minorista_online (
+	id_minorista_on       	INTEGER(10),
+	nombre                  VARCHAR(30),
+    app                     VARCHAR(30),
+    apm                     VARCHAR(30),
+    sexo                    VARCHAR(15),
+    fecha_nac         		DATE,
+--	id_tarjeta_registrada   INTEGER(20),
+    clienteid_cliente   	INTEGER(10)
+);
+
+-- --------------------------------------
+CREATE TABLE telefono_min (
+	minorista_onlineid_minorista_on    INTEGER(10),
+	telefono                		   VARCHAR(10)
+);
+
+```
 --(DANI)
 ```sql
 CREATE TABLE correo_min(
