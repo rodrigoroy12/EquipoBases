@@ -271,12 +271,12 @@ CREATE TABLE empacador (
 );
 
 CREATE TABLE encargado_almacen (
-        id_encargado_alm        INTERGER(10),
+        id_encargado_alm        INTEGER(10),
 	no_computadora          SMALLINT(10),
 	empleadoid_trabajador   INTEGER(10)
 );
 CREATE TABLE encargado_almacen (
-        id_encargado_mos        INTERGER(10),
+        id_encargado_mos        INTEGER(10),
 	no_ventas               SMALLINT(10),
 	empleadoid_trabajador   INTEGER(10)
 );	
