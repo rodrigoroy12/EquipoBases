@@ -42,19 +42,6 @@ alter table empleado alter constraint chk_empleado_rfc CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
 alter table empleado alter column fecha_fin set null;
-
-```
-```sql
---(DANI)
---LLAVES PRIMARIAS
-ALTER TABLE correo_min ADD CONSTRAINT pk_correo_minorista_onlineid_minorista_on PRIMARY KEY (minorista_onlineid_minorista_on)
-ALTER TABLE dir_minorista ADD CONSTRAINT pk_dir_minorista_id_minorista_on PRIMARY KEY (minorista_id_minorista_on)
-ALTER TABLE tarjetas_registradas ADD CONSTRAINT pk_tarjetas_registradas_minorista_onlineid_minorista_on PRIMARY KEY (minorista_onlineid_minorista_on)
-ALTER TABLE tipo_de_tarjeta ADD CONSTRAINT pk_tipo_de_tarjeta_id_tipo_de_tarjeta PRIMARY KEY (id_tipo_de_tarjeta)
-ALTER TABLE emisora_tarjeta ADD CONSTRAINT pk_emisora_tarjeta_id_emisora PRIMARY KEY (id_emisora)
-ALTER TABLE mayorista ADD CONSTRAINT pk_mayorista_id_mayorista PRIMARY KEY (id_mayorista)
-
-
 ```
 ```sql
 --(IVAN)
@@ -95,8 +82,8 @@ ALTER TABLE repartidor ADD CONSTRAINT pk_repartidor_id_repartidor PRIMARY KEY  (
 ALTER TABLE local_nacional ADD CONSTRAINT pk_local_nacional_id_loc_nac PRIMARY KEY  (id_loc_nac);
 
 --LLAVES FORANEAS
-ALTER TABLE empleado_puesto ADD constraint fk_empleado_puesto_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empeleadoid_trabajador) REFERENCES empleado(id_trabajador);
-ALTER TABLE empleado_puesto ADD constraint fk_empleado_puesto_cpuestoid_cpuesto_cpuesto_id_cpuesto FOREIGN KEY (cpuestoid_cpuesto) REFERENCES cpuesto(id_cpuesto);
+ALTER TABLE emplead_puesto ADD constraint fk_empleado_puesto_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empeleadoid_trabajador) REFERENCES empleado(id_trabajador);
+ALTER TABLE emplead_puesto ADD constraint fk_empleado_puesto_cpuestoid_cpuesto_cpuesto_id_cpuesto FOREIGN KEY (cpuestoid_cpuesto) REFERENCES cpuesto(id_cpuesto);
 ALTER TABLE repartidor ADD constraint fk_repartidor_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empeleadoid_trabajador) REFERENCES empleado(id_trabajador);
 ALTER TABLE repartidor ADD constraint fk_repartidor_local_nacionalid_loc_nac FOREIGN KEY (local_nacionalid_loc_nac) REFERENCES local_nacional(id_loc_nac);
 ALTER TABLE tipo_unidad ADD constraint fk_tipo_unidad_local_nacionalid_loc_nac_local_nacional_id_loc_nac FOREIGN KEY (local_nacionalid_loc_nal) REFERENCES local_nacional(id_loc_nac);
@@ -104,29 +91,45 @@ ALTER TABLE tipo_unidad ADD constraint fk_tipo_unidad_local_nacionalid_loc_nac_l
 --NULL AND CHECK
 ALTER TABLE local_nacional ALTER CONSTRAINT chk_local_nacional_tipo CHECK (tipo= "Local" OR "Nacional");
 ```
-```sql
---CHRIS
---LLAVES PRIMARIAS
-ALTER TABLE vigilancia ADD CONSTRAINT pk_vigilancia_id_trabajador_vig PRIMARY KEY (id_trabajador_vig);
-ALTER TABLE intendencia ADD CONSTRAINT pk_intendencia_id_trabajador_int PRIMARY KEY (id_trabajador_int);
-ALTER TABLE gerente ADD CONSTRAINT pk_gerente_id_gerente PRIMARY KEY (id_gerente);
-ALTER TABLE gerente_proveedor ADD CONSTRAINT pk_gerente_proveedor_id_encargado_proveedor PRIMARY KEY (id_encargado_proveedor);
-ALTER TABLE encargo_seguimiento ADD CONSTRAINT pk_encargo_seguimiento_gerente_proveedorid_encargo_proveedor PRIMARY KEY (gerente_proveedorid_encargo_proveedor);
 
---LLAVES FORANEAS 
-ALTER TABLE vigilancia ADD CONSTRAINT fk_vigilancia_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajador) REFERENCES empleado(id_trabajador);
-ALTER TABLE intendencia ADD CONSTRAINT fk_intendencia_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajador) REFERENCES empleado(id_trabajador);
-ALTER TABLE gerente ADD CONSTRAINT fk_gerente_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajador) REFERENCES empleado(id_trabajador);
-ALTER TABLE gerente_proveedor ADD CONSTRAINT fk_gerente_proveedor_gerenteid_gerente_gerente_id_gerente FOREIGN KEY (gerenteid_gerente) REFERENCES gerente(id_gerente);
-ALTER TABLE gerente_proveedor ADD CONSTRAINT fk_gerente_proveedor_proveedorid_proveedor_proveedor_id_proveedor FOREIGN KEY (proveedorid_proveedor) REFERENCES proveedor(id_proveedor);
-ALTER TABLE encargo_seguimiento ADD CONSTRAINT fk_encargo_seguimiento_gerente_proveedorid_encargo_proveedor_gerente_proveedor_id_encargo_proveedor FOREIGN KEY (gerente_proveedorid_encargo_proveedor) REFERENCES gerente_proveedor(id_encargo_proveedor);
+
+---Marlene 
+
+``` sql
+
+--LLAVES PRIMARIAS
+ALTER TABLE encargo_orden  ADD CONSTRAINT  pk_encargo_orden PRIMARY KEY (gerente_proveedorid_encargo_proveedor);
+ALTER TABLE proveedor  ADD CONSTRAINT  pk_proveedor PRIMARY KEY (id_proveedor);
+ALTER TABLE producto_proveedor ADD CONSTRAINT pk_producto_proveedor PRIMARY KEY (id_prod_proveedor);
+ALTER TABLE prod_proveedor_precio ADD CONSTRAINT pk_prod_proveedor PRIMARY KEY  (producto_proveedorid_prod_proveedor);
+ALTER TABLE prod_proveedor_tipo ADD CONSTRAINT pk_prod_proveedor_tipo PRIMARY KEY (producto_proveedorid_prod_proveedor);
+
+--LLAVES FORANEAS
+
+ALTER TABLE encargo_orden ADD CONSTRAINT fk_encargo_orden_gerente_proveedorid_encargo_proveedor_gerente_proveedor_id_encargo_proveedor FOREIGN KEY (gerente_proveedorid_encargo_proveedor) references gerente_proveedor(id_encargo_proveedor);
+
+ALTER TABLE producto_proveedor ADD CONSTRAINT fk_producto_proveedor_proveedorid_proveedor_proveedor_id_proveedor FOREIGN KEY (proveedorid_proveedor) references proveedor(id_proveedor);
+
+ALTER TABLE prod_proveedor_precio ADD CONSTRAINT fk_prod_proveedor_precio_producto_proveedorid_prod_proveedor_producto_proveedor_id_prod_proveedor FOREIGN KEY (producto_proveedorid__prod_proveedor) references producto_proveedor(id_prod_proveedor);
+
+ALTER TABLE prod_proveedor_tipo ADD CONSTRAINT fk_prod_proveedor_tipo_producto_proveedorid_prod_proveedor_producto_proveedor_id_prod_proveedor FOREIGN KEY (producto_proveedorid__prod_proveedor) references producto_proveedor(id_prod_proveedor);
+
+
+--proveedor no tiene llaves foraneas
 
 --NULL AND CHECK
-ALTER TABLE vigilancia ALTER COLUMN equipo SET NULL;
-ALTER TABLE vigilancia ALTER COLUMN recorrido SET NULL;
-ALTER TABLE intendencia ALTER COLUMN uniformes_otorgados SET NULL;
-ALTER TABLE intendencia ALTER COLUMN materia_trabajo SET NULL;
+ALTER TABLE proveedor ALTER CONSTRAINT chk_proveedor_rfc CHECK 
+(rfc = ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-Z]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9][A-Z]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
+‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
+
+ALTER TABLE encargo_orden alter column  no_orden set null;
+
 
 ```
-
 
