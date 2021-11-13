@@ -232,6 +232,39 @@ CREATE TABLE encargado_almacen (
 ```	
 	
 --(CHRIS)
+``` sql
+CRAETE TABLE vigilancia (
+ id_trabajador_vig SERIAL,
+    recorrido VARCHAR(30),
+    equipo VARCHAR(50),
+    empleadoid_trabajador INTEGER(10)
+);
+
+CREATE TABLE intendencia (
+  id_trabajador_int SERIAL,
+     materia_trabajo VARCHAR(50),
+     uniformes_ototgados VARCHAR(20),
+  empleadoid_trabajador INTEGER(10)
+);
+
+CREATE TABLE gerente (
+   id_gerente SERIAL,
+      sucursal VARCHAR(50),
+   empleadoid_trabajador INTEGER(10)
+);
+
+CREATE TABLE gerente_proveedor (
+   id_encargo_proveedor SERIAL,
+   gerenteid_gerente INTEGER(10),
+   proveedorid_proveedor INTEGER(10)
+);
+
+CREATE TABLE encargo_seguimiento (
+   gerente_proveedorid_encargo_proveedor SERIAL
+     no_seguimiento INTEGER(10)
+); 
+     
+``` 
 
 ```sql
 
