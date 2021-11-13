@@ -1,7 +1,37 @@
 
 ```sql
-SELECT *
-FROM
+
+--(BRUCE)
+--LLAVES PRIMARIAS
+ALTER TABLE minorista ADD CONSTRAINT pk_minorista PRIMARY KEY (id_minorista);
+
+ALTER TABLE miembros ADD CONSTRAINT pk_miembros PRIMARY KEY (id_miembro );
+
+ALTER TABLE cmembresia ADD CONSTRAINT pk_cmembresia PRIMARY KEY (nombre);
+
+ALTER TABLE telefono_miembros ADD CONSTRAINT pk_telefono_miembros PRIMARY KEY (miembrosid_miembro,telefono);
+
+ALTER TABLE minorista_online ADD CONSTRAINT pk_minorista_online PRIMARY KEY (id_minorista_on );
+
+ALTER TABLE telefono_min ADD CONSTRAINT telefono_min PRIMARY KEY (minorista_onlineid_minorista_on,telefono );
+
+--LLAVES FORANEAS
+ALTER TABLE minorista ADD CONSTRAINT fk_minorista_clienteid_cliente_cliente_id_cliente FOREIGN KEY (clienteid_cliente) REFERENCES cliente(id_cliente);
+
+ALTER TABLE minorista_online ADD CONSTRAINT fk_minorista_clienteid_cliente_cliente_id_cliente FOREIGN KEY (clienteid_cliente) REFERENCES cliente(id_cliente);
+
+ALTER TABLE miembros ADD CONSTRAINT fk_miembros_minoristaid_minorista_minorista_id_minorista FOREIGN KEY (minoristaid_minorista) REFERENCES minorista(id_minorista);
+
+ALTER TABLE miembros ADD CONSTRAINT fk_miembros_cmembresianombre_cmembresia_cmembresianombre FOREIGN KEY (cmembresianombre) REFERENCES cmembresia(nombre);
+
+ALTER TABLE telefono_miembros ADD CONSTRAINT fk_telefono_miembros_miembros_id_miembro FOREIGN KEY (miembrosid_miembro) REFERENCES miembros(id_miembro);
+
+ALTER TABLE telefono_min ADD CONSTRAINT fk_telefono_min_minorista_online_id_minorista_on FOREIGN KEY (minorista_onlineid_minorista_on) REFERENCES minorista_online(id_minorista_on);
+
+--NULL AND CHECK
+ALTER TABLE miembros ALTER CONSTRAINT chk_miembro_sexo CHECK (sexo= "Mujer" OR sexo="Hombre" OR sexo="Otro");
+ALTER TABLE minorista_online ALTER CONSTRAINT chk_minorista_online_sexo CHECK (sexo= "Mujer" OR sexo="Hombre" OR sexo="Otro");
+
 ```
 ```sql
 --(NANCY)
