@@ -72,6 +72,32 @@ alter table empleado alter constraint chk_empleado_rfc CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
 alter table empleado alter column fecha_fin set null;
+
+
+```
+```sql
+--(DANI)
+--LLAVES PRIMARIAS
+ALTER TABLE correo_min ADD CONSTRAINT pk_correo_minorista_onlineid_minorista_on PRIMARY KEY (minorista_onlineid_minorista_on)
+ALTER TABLE dir_minorista ADD CONSTRAINT pk_dir_minorista_id_minorista_on PRIMARY KEY (minorista_id_minorista_on)
+ALTER TABLE tarjetas_registradas ADD CONSTRAINT pk_tarjetas_registradas_minorista_onlineid_minorista_on PRIMARY KEY (minorista_onlineid_minorista_on)
+ALTER TABLE tipo_de_tarjeta ADD CONSTRAINT pk_tipo_de_tarjeta_id_tipo_de_tarjeta PRIMARY KEY (id_tipo_de_tarjeta)
+ALTER TABLE emisora_tarjeta ADD CONSTRAINT pk_emisora_tarjeta_id_emisora PRIMARY KEY (id_emisora)
+ALTER TABLE mayorista ADD CONSTRAINT pk_mayorista_id_mayorista PRIMARY KEY (id_mayorista)
+--LLAVES FORANEAS
+ALTER TABLE correo_min ADD CONSTRAINT fk_correo_min_minorista_onlineid_minorista_on_minorista_online_id_minorista_on FOREIGN KEY (minorista_onlineid_minorista_on) REFERENCES minorista_online (id_minorista_on)
+ALTER TABLE dir_minorista ADD CONSTRAINT fk_dir_minorista_id_minorista_on_minorista_online_id_minorista_on FOREIGN KEY(minorista_online_id_minorista_on) FOREIGN KEY REFERENCES minorista_online (id_minorista_on)
+ALTER TABLE tarjetas_registradas ADD CONSTRAINT fk_tarjetas_registradas_minorista_onlineid_minorista_on_minorista_online_id_minorista_on FOREIGN KEY (minorista_onlineid_minorista_on) REFERENCES minorista_online (id_minorista_on)
+ALTER TABLE tarjetas_registradas ADD CONSTRAINT fk_tarjetas_registradas_tipo_de_tarjetaid_tipo_de_tarjeta_tipo_de_tarjeta_id_tipo_de_tarjeta FOREIGN KEY (tipo_de_tarjetaid_tipo_de_tarjeta) REFERENCES tipo_de_tarjeta(id_tipo_de_tarjeta)
+ALTER TABLE tarjetas_registradas ADD CONSTRAINT fk_tarjetas_registradas_emisora_tarjetaid_emisora_emisora_tarjeta_id_emisora FOREIGN KEY (emisora_tarjetaid_emisora) REFERENCES emisora_tarjeta(id_emisora)
+ALTER TABLE mayorista ADD CONSTRAINT fk_mayorista_clienteid_cliente_cliente_id_cliente FOREIGN KEY (clienteid_cliente) REFERENCES cliente(id_cliente)
+ALTER TABLE mayorista ADD CONSTRAINT fk_mayorista_representanteid_representante_representantes_id_representante FOREIGN KEY (representanteid_representante) REFERENCES representantes(id_representante)
+
+
+
+
+
+
 ```
 ```sql
 --(IVAN)
@@ -103,6 +129,9 @@ ALTER TABLE rfc_empresa ALTER CONSTRAINT chk_rfc_empresa CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9][A-Z]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
+
+
+
 ```
 ```sql
 --(RODRIGO)
