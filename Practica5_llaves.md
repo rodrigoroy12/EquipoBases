@@ -228,7 +228,7 @@ ALTER TABLE prod_proveedor_tipo ADD CONSTRAINT fk_prod_proveedor_tipo_producto_p
 --proveedor no tiene llaves foraneas
 
 --NULL AND CHECK
-ALTER TABLE proveedor ALTER CONSTRAINT chk_proveedor_rfc CHECK 
+ALTER TABLE proveedor ADD CONSTRAINT chk_proveedor_rfc CHECK 
 (rfc = ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9]’ OR
@@ -238,7 +238,7 @@ ALTER TABLE proveedor ALTER CONSTRAINT chk_proveedor_rfc CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
 
-ALTER TABLE encargo_orden alter column  no_orden set null;
+ALTER TABLE encargo_orden alter column  no_orden set not null;
 
 
 ```
