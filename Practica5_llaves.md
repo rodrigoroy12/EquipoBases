@@ -92,6 +92,29 @@ ALTER TABLE tipo_unidad ADD constraint fk_tipo_unidad_local_nacionalid_loc_nac_l
 ALTER TABLE local_nacional ALTER CONSTRAINT chk_local_nacional_tipo CHECK (tipo= "Local" OR "Nacional");
 ```
 
+```sql
+--(CHRIS)
+--LLAVES PRIMARIAS
+ALTER TABLE vigilancia ADD CONSTRAINT pk_vigilancia_id_trabajador_vig PRIMARY KEY (id_trabajador_vig);
+ALTER TABLE intendencia ADD CONSTRAINT pk_intendencia_id_trabajador_int PRIMARY KEY (id_trabajador_int);
+ALTER TABLE gerente ADD CONSTRAINT pk_gerente_id_gerente PRIMARY KEY (id_gerente);
+ALTER TABLE gerente_proveedor ADD CONSTRAINT pk_gerente_proveedor_id_encargado_proveedor PRIMARY KEY (id_encargado_proveedor);
+ALTER TABLE encargo_seguimiento ADD CONSTRAINT pk_encargo_seguimiento_gerente_proveedorid_encargo_proveedor PRIMARY KEY (gerente_proveedorid_encargo_proveedor);
+
+--LLAVES FORANEAS 
+ALTER TABLE vigilancia ADD CONSTRAINT fk_vigilancia_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajador) REFERENCES empleado(id_trabajador);
+ALTER TABLE intendencia ADD CONSTRAINT fk_intendencia_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajador) REFERENCES empleado(id_trabajador);
+ALTER TABLE gerente ADD CONSTRAINT fk_gerente_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajador) REFERENCES empleado(id_trabajador);
+ALTER TABLE gerente_proveedor ADD CONSTRAINT fk_gerente_proveedor_gerenteid_gerente_gerente_id_gerente FOREIGN KEY (gerenteid_gerente) REFERENCES gerente(id_gerente);
+ALTER TABLE gerente_proveedor ADD CONSTRAINT fk_gerente_proveedor_proveedorid_proveedor_proveedor_id_proveedor FOREIGN KEY (proveedorid_proveedor) REFERENCES proveedor(id_proveedor);
+ALTER TABLE encargo_seguimiento ADD CONSTRAINT fk_encargo_seguimiento_gerente_proveedorid_encargo_proveedor_gerente_proveedor_id_encargo_proveedor FOREIGN KEY (gerente_proveedorid_encargo_proveedor) REFERENCES gerente_proveedor(id_encargo_proveedor);
+
+--NULL AND CHECK
+ALTER TABLE vigilancia ALTER COLUMN equipo SET NULL;
+ALTER TABLE vigilancia ALTER COLUMN recorrido SET NULL;
+ALTER TABLE intendencia ALTER COLUMN uniformes_otorgados SET NULL;
+ALTER TABLE intendencia ALTER COLUMN materia_trabajo SET NULL;
+```
 
 
 ``` sql
