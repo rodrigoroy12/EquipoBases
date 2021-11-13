@@ -155,6 +155,31 @@ ALTER TABLE local_nacional ALTER CONSTRAINT chk_local_nacional_tipo CHECK (tipo=
 ```
 
 ```sql
+
+--(GABY)
+
+--LLAVES PRIMARIAS
+ALTER TABLE cajero ADD CONSTRAINT pk_cajero_id_cajero PRIMARY KEY (id_cajero);
+ALTER TABLE capacitacion ADD CONSTRAINT pk_capacitacion_id_trabajador_cap PRIMARY KEY (id_trabajador_cap);
+ALTER TABLE empacador ADD CONSTRAINT pk_empacador_id_empacador PRIMARY KEY (id_empacador);
+ALTER TABLE encargado_almacen ADD CONSTRAINT pk_encargado_almacen_id_encargado_alm PRIMARY KEY (id_encargado_alm);
+ALTER TABLE encargado_mostrador ADD CONSTRAINT pk_encargado_mostrador_id_encargado_mos PRIMARY KEY (id_encargado_mos);
+
+--LLAVES FORANEAS
+ALTER TABLE cajero ADD constraint fk_cajero_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajdor) REFERENCES categoria(id_trabajador);
+ALTER TABLE capacitacion ADD constraint fk_capacitacion_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajdorr) REFERENCES categoria(id_trabajador);
+ALTER TABLE empacador ADD constraint fk_empacador_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajdor) REFERENCES categoria(id_trabajador);
+ALTER TABLE encargado_almacen ADD constraint fk_encargado_almacen_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajdor) REFERENCES categoria(id_trabajador);
+ALTER TABLE encargado_mostrador ADD constraint fk_encargado_mostrador_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajdor) REFERENCES categoria(id_trabajador);
+
+--NULL AND CHECK
+ALTER TABLE capacitacion ALTER COLUMN zona_enfoque SET NULL;
+ALTER TABLE capacitacion ALTER COLUMN horas completadas SET NULL;
+
+```
+
+
+```sql
 --(CHRIS)
 --LLAVES PRIMARIAS
 ALTER TABLE vigilancia ADD CONSTRAINT pk_vigilancia_id_trabajador_vig PRIMARY KEY (id_trabajador_vig);
