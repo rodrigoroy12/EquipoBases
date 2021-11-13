@@ -275,7 +275,7 @@ CREATE TABLE encargado_almacen (
 	no_computadora          SMALLINT(10),
 	empleadoid_trabajador   INTEGER(10)
 );
-CREATE TABLE encargado_almacen (
+CREATE TABLE encargado_mostrador (
         id_encargado_mos        INTEGER(10),
 	no_ventas               SMALLINT(10),
 	empleadoid_trabajador   INTEGER(10)
