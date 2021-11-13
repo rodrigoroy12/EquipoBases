@@ -123,7 +123,19 @@ ALTER TABLE compra ADD constraint fk_compra_clienteid_cliente_cliente_id_cliente
 ALTER TABLE compra ADD constraint fk_compra_id_trabajador_empleado_id_trabajador FOREIGN KEY (id_trabajador) REFERENCES categoria(id_trabajador);
 
 --NULL AND CHECK
-ALTER TABLE rfc_empresa ALTER CONSTRAINT chk_rfc_empresa CHECK 
+ALTER TABLE telefono_may ALTER COLUMN telefono SET NOT NULL;
+ALTER TABLE correo_may ALTER COLUMN correo SET NOT NULL;
+ALTER TABLE rfc_empresa ALTER COLUMN rfc SET NOT NULL;
+ALTER TABLE representantes ALTER COLUMN nombre SET NOT NULL;
+ALTER TABLE representantes ALTER COLUMN app SET NOT NULL;
+ALTER TABLE representantes ALTER COLUMN apm SET NOT NULL;
+ALTER TABLE dir_mayorista ALTER COLUMN numero SET NOT NULL;
+ALTER TABLE dir_mayorista ALTER COLUMN calle SET NOT NULL;
+ALTER TABLE dir_mayorista ALTER COLUMN colonia SET NOT NULL;
+ALTER TABLE dir_mayorista ALTER COLUMN estado SET NOT NULL;
+ALTER TABLE dir_mayorista ALTER COLUMN cp SET NOT NULL;
+ALTER TABLE dir_mayorista ALTER COLUMN municipio SET NOT NULL;
+ALTER TABLE rfc_empresa ADD CONSTRAINT chk_rfc_empresa CHECK 
 (rfc = ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9]’ OR
@@ -228,7 +240,7 @@ ALTER TABLE prod_proveedor_tipo ADD CONSTRAINT fk_prod_proveedor_tipo_producto_p
 --proveedor no tiene llaves foraneas
 
 --NULL AND CHECK
-ALTER TABLE proveedor ADD CONSTRAINT chk_proveedor_rfc CHECK 
+ALTER TABLE proveedor ALTER CONSTRAINT chk_proveedor_rfc CHECK 
 (rfc = ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][0-9]’ OR
@@ -238,7 +250,7 @@ ALTER TABLE proveedor ADD CONSTRAINT chk_proveedor_rfc CHECK
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][0-9]’ OR
 ‘[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z]’);
 
-ALTER TABLE encargo_orden alter column  no_orden set not null;
+ALTER TABLE encargo_orden alter column  no_orden set null;
 
 
 ```
