@@ -93,7 +93,7 @@ ALTER TABLE local_nacional ALTER CONSTRAINT chk_local_nacional_tipo CHECK (tipo=
 ```
 
 
----Marlene 
+--Marlene 
 
 ``` sql
 
