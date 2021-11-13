@@ -173,8 +173,7 @@ ALTER TABLE encargado_almacen ADD constraint fk_encargado_almacen_empleadoid_tra
 ALTER TABLE encargado_mostrador ADD constraint fk_encargado_mostrador_empleadoid_trabajador_empleado_id_trabajador FOREIGN KEY (empleadoid_trabajdor) REFERENCES categoria(id_trabajador);
 
 --NULL AND CHECK
-ALTER TABLE capacitacion ALTER COLUMN zona_enfoque SET NULL;
-ALTER TABLE capacitacion ALTER COLUMN horas completadas SET NULL;
+ALTER TABLE capacitacion ALTER COLUMN zona_enfoque SET NOT NULL;
 
 ```
 
